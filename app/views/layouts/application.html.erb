@@ -6,9 +6,40 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
+    <%= cloudinary_js_config%>
+
   </head>
+<div class="container">
 
   <body>
+    <hr>
+    <nav class="nav navbar-nav navbar-right">
+
+        <% if @current_user.present? %>
+
+          <%= link_to "#{@current_user.name}", profile_path %>
+          |
+          <%= link_to 'Logout', login_path, method: :delete %>
+          <% else %>
+          <%= link_to 'Sign-In', login_path %>
+          |
+          <%= link_to 'Sign-Up', new_user_path %>
+
+        <% end %>
+
+    </nav>
+    <h3>Welcome to Trad3r</h3>
     <%= yield %>
+
+    <br>
+    <footer>
+      <hr>
+      &copy; 2018 Project 2 - Group project - Alex Pham - Amir Hafizovic - James MacLeod
+      <hr>
+    </footer>
   </body>
+
+</div>
+
 </html>

@@ -1,0 +1,15 @@
+<br>
+<div class="row">
+  <div class="col-md-6">
+
+    <%= form_tag "/avatars/search" do %>
+    <div class="input-group">
+    <!-- Search for: -->
+    <%= text_field_tag :query, nil, class:"form-control", placeholder: "enter name to search for avatars" %>
+    <span class="input-group-btn">
+    <%= button_tag :Search, class:"btn btn-primary" %>
+    </span>
+    <% end %>
+  </div><!-- /input-group -->
+</div><!-- /.col-lg-6 -->
+</div>

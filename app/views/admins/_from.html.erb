@@ -1,0 +1,68 @@
+<strong><%= flash[:errors] %></strong>
+<% if flash[:error].present? %>
+<strong>Please correct the follow errors</strong>
+  <ol>
+    <% flash[:error_messages].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ol>
+<% end %>
+
+<%= form_for @user, class:"form-horizontal", html: {multipart: true} do |f| %>
+<div class="form-group">
+  <div class="col-sm-6">
+    <fieldset>
+      <%= f.label :name %>
+      <%= f.text_field :name, class:"form-control" %>
+    </fieldset>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-sm-6">
+    <fieldset>
+      <%= f.label :email %>
+      <%= f.email_field :email, class:"form-control" %>
+    </fieldset>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-sm-6">
+    <fieldset>
+      <%= f.label :password %>
+      <%= f.password_field :password, class:"form-control"  %>
+    </fieldset>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-sm-6">
+    <fieldset>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, class:"form-control" %>
+    </fieldset>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-sm-6">
+    <fieldset>
+      <%= f.label :coins %>
+      <%= f.text_field :coins, class:"form-control" %>
+    </fieldset>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-sm-6">
+    <fieldset>
+      <%= f.label :is_admin %>
+      <%= f.text_field :is_admin, class:"form-control" %>
+    </fieldset>
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="col-sm-offset-6 col-sm-6">
+    <%= f.submit 'submit', class:"btn btn-primary" %>
+  </div>
+</div>
+
+<% end %>
+<br>

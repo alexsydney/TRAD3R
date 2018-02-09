@@ -1,6 +1,6 @@
-<h4>User Lists - index</h4>
+<h4>Admin Dashboard page</h4>
 
-<%= link_to 'Add new user', '/users/new' %> |
+<%#= link_to 'Add new user', '/users/new' %> |
 <%= link_to 'Bck to main page', root_path %>
 
 <ul>
@@ -9,7 +9,8 @@
       <em>
          <%= link_to user.email, user_path(user.id) %>
       </em>
-      , <%= user.name%>
+      Name: <%= user.name%><br/>
+      Coin: <%= user.coins%><br/>
     </li>
   <% end %>
 </ul>
