@@ -1,0 +1,8 @@
+<hr>
+<%= link_to 'Add Phrase', new_phrase_path(@phrase), class:"btn btn-primary" %>
+<%= link_to 'Edit', edit_phrase_path(@phrase), class:"btn btn-primary" %>
+<%= link_to 'Delete', phrase_path, method: :delete, class:"btn btn-primary" %>
+<%= link_to 'Back', "/phrases", class:"btn btn-primary" %>
+<hr>
+<p><%= @phrase.body %></p>
+<p><%= @phrase.value %></p>

@@ -6,9 +6,28 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
+    <%= cloudinary_js_config%>
+
   </head>
+<div class="container">
 
   <body>
+    <%= render 'shared/navbar'%>
+    <hr>
+    <br>
+    <h3>Welcome to Trad3r</h3>
+   <hr>
     <%= yield %>
+
+    <br>
+    <footer>
+      <hr>
+      &copy; 2018 Project 2 - Group project - Alex Pham - Amir Hafizovic
+      <hr>
+    </footer>
   </body>
+
+</div>
+
 </html>

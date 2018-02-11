@@ -1,0 +1,21 @@
+
+<hr>
+
+<%= link_to 'Add', '/avatars/new', class:"btn btn-primary" %>
+<%= link_to 'Back to main page', root_path, class:"btn btn-primary" %>
+
+<hr>
+
+<h4>Avatar Lists </h4>
+<hr>
+<% @avatars.each do |avatar| %>
+  <li>
+    <em>
+      <%= link_to avatar.name, avatar_path(avatar.id) %>
+    </em>
+    , <%= avatar.src %>
+    , <%= avatar.description %>
+    , <%= avatar.value %>
+    , <%= avatar.is_sale %>
+  </li>
+<% end %>

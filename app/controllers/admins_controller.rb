@@ -1,41 +1,26 @@
-class UsersController < ApplicationController
-
-   before_action :check_if_logged_in
-  # before_action :check_if_logged_in, only: [:profile]
+class AdminsController < ApplicationController
 
    before_action :check_if_admin
   # before_action :check_if_admin, only: [:index]
 
   def profile
+    @user = @current_user
 
-    # @user = @current_user
-    # render :show
+    render :show
 
-      # @results = Avatar.where('name LIKE ?', "%#{params[:query]}%")
-
-      # @mine  = Avatar.where user: ??????
-      # @not_mine = Avatar.where user: ??????
   end
 
   # create
   def new
-
-      @user = User.new
+     @user = User.new
 
   end
 
   def create
+    user = User.create admin_params
 
-    user = User.create user_params
-
-    if user.id.present? # user.presisted
+    if user.id.present?
       session[:user_id] = user.id
-
-      # if params[:file].present?
-      #   req = Cloudinary::Uploader.upload(params[:file])
-      #
-      #   user.image = req["public_id"]
-      # end
 
       user.save
 
@@ -43,7 +28,8 @@ class UsersController < ApplicationController
 
     else
 
-      flash[:error] = "Error creating account. Try again."
+      flash[:error] = "Errror creating account. Try again."
+
       flash[:error_messages] = user.errors.full_messages
 
       redirect_to new_user_path
@@ -52,20 +38,21 @@ class UsersController < ApplicationController
 
   end
 
+  # read
+  def dashboard
 
-  # Read
-  def index
     @user = User.all
 
   end
 
   def show
     @user = User.find params[:id]
+
   end
 
-  # Update/edit
+  #update/edit
   def edit
-      @user = User.find params[:id]
+    @user = User.find params[:id]
   end
 
   def update
@@ -74,16 +61,14 @@ class UsersController < ApplicationController
     if params[:file].present?
       req = Cloudinary::Uploader.upload(params[:file])
 
-      # user.image = req["public_id"]
     end
 
-    user.update_attributes(user_params)
+    user.update_attributes(admin_params)
     user.save
 
     redirect_to user_path(user)
 
   end
-
 
   def destroy
 
@@ -91,13 +76,12 @@ class UsersController < ApplicationController
 
     redirect_to users_path
 
-
   end
 
 
   private
 
-  def user_params
+  def admin_params
 
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :coins, :is_admin)
 
