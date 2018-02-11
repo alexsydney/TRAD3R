@@ -3,12 +3,21 @@
   <head>
     <title>Trad3r</title>
     <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="/assets/magnific-popup.css">
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
   </head>
 
   <body>
     <%= yield %>
+
+    <div class="modal" style="display:none;">
+    </div>
+
+    <script src="/assets/jquery.js"></script>
+    <script src="/assets/magnific-popup.js"></script>
+
   </body>
 </html>

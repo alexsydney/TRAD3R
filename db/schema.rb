@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20180209055430) do
     t.integer "user_id"
   end
 
-  create_table "avatars_phrases", force: :cascade do |t|
+  create_table "avatars_phrases", id: false, force: :cascade do |t|
     t.integer "avatar_id"
     t.integer "phrase_id"
   end

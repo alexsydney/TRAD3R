@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Phrases</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Phrase</th>
+      <th>Value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <% @phrases.each do |phrase| %>
+      <tr style="border: 1px solid black" >
+        <td style="width: 300px; margin-left: 100px; border: 1px solid black" ><h3><%=h truncate(phrase.body, :length => 35) %></h3></td>
+        <td style="width: 75px; border: 1px solid black"><h3><%= phrase.value %></h3></td>
+        <td style="width: 50px"><%= link_to 'Buy', phrase %></td>
+        <td style="width: 50px"><%= link_to 'Show', phrase %></td>
+        <td style="width: 50px"><%= link_to 'Edit[AD]', edit_phrase_path(phrase) %></td>
+        <td style="width: 50px"><%= link_to 'Destroy[AD]', phrase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Phrase[AD]', new_phrase_path %>

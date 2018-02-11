@@ -15,11 +15,11 @@ puts "create #{User.all.length} users "
 
 Phrase.destroy_all
 
-p1 = Phrase.create body:'body text', value: 20
+p1 = Phrase.create body:'I’m blowing up like you thought I would/Call the crib, same number, same hood, it’s all good.', value: 20
 
-p2 = Phrase.create body:'body text', value: 20
+p2 = Phrase.create body:'Never lose, never choose to.', value: 20
 
-p3 = Phrase.create body:'body text', value: 20
+p3 = Phrase.create body: 'if i told you that a flower bloomed in a dark room would you trust it', value: 20
 
 puts "create #{Phrase.all.length} phrases "
 

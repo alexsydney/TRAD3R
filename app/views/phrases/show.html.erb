@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Phrase <%= @phrase.id %> </h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Phrase</th>
+      <th>Value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <tr style="border: 1px solid black" >
+      <td style="width: 300px; margin-left: 100px; border: 1px solid black" ><h3><%=h truncate(@phrase.body, :length => 35) %></h3></td>
+      <td style="width: 75px; border: 1px solid black" ><h3><%= @phrase.value %></h3></td>
+      <td style="width: 50px"><%= link_to 'Edit', @phrase %></td>
+      <td style="width: 50px"><%= link_to 'Destroy[AD]', @phrase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+
+  </tbody>
+</table>
+
+<div style="height:50px"></div>
+<%= link_to 'Back', phrases_path %> <br/>
+<%= link_to 'New Phrase[AD]', new_phrase_path %>

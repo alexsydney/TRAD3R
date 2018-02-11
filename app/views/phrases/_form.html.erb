@@ -1,0 +1,23 @@
+<% if flash[:errors] %>
+  <strong>Please correct the following errors:</strong>
+  <ol>
+  <% flash[:errors].each do |e| %>
+    <li><%= e %></li>
+  <% end %>
+  </ol>
+<% end %>
+
+<%= form_for @phrase do |form|  %>
+
+    <div style="margin:20px;">
+      <%= form.label :body, "Body:" %>
+      <%= form.text_field :body  %>
+    </div>
+    <div style="margin:20px;">
+      <%= form.label :value %>
+      <%= form.number_field :value %>
+    </div>
+
+    <%= form.submit style: 'margin: 0 20px 20px 20px' %>
+
+<% end %>
