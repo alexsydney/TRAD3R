@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
 
-   before_action :check_if_logged_in
+   before_action :check_if_logged_in, except: :new
   # before_action :check_if_logged_in, only: [:profile]
 
-   before_action :check_if_admin
+   before_action :check_if_admin, except: :new
   # before_action :check_if_admin, only: [:index]
 
   def profile
