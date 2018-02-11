@@ -7,6 +7,8 @@ class PagesController < ApplicationController
 
   def home
 
+    @avatars = Avatar.all
+
   end
 
   def search

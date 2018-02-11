@@ -1,0 +1,59 @@
+<strong><%= flash[:errors] %></strong>
+<% if flash[:error].present? %>
+<strong>Please correct the follow errors</strong>
+  <ol>
+    <% flash[:error_messages].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ol>
+<% end %>
+
+<%= form_for @avatar, class:"form-horizontal", html: {multipart: true} do |f| %>
+<div class="form-group">
+  <div class="col-sm-6">
+    <fieldset>
+      <%= f.label :src %>
+      <%= f.text_field :src, class:"form-control" %>
+    </fieldset>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-sm-6">
+    <fieldset>
+      <%= f.label :name %>
+      <%= f.text_field :name, class:"form-control" %>
+    </fieldset>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-sm-6">
+    <fieldset>
+      <%= f.label :description %>
+      <%= f.text_field :description, class:"form-control"  %>
+    </fieldset>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-sm-6">
+    <fieldset>
+      <%= f.label :value %>
+      <%= f.text_field :value, class:"form-control" %>
+    </fieldset>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-sm-6">
+    <fieldset>
+      <%= f.label :is_sale %>
+      <%= f.text_field :is_sale, class:"form-control" %>
+    </fieldset>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-sm-offset-6 col-sm-6">
+    <%= f.submit 'create', class:"btn btn-primary" %>
+  </div>
+</div>
+
+<% end %>
+<br>

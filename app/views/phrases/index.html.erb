@@ -1,0 +1,18 @@
+
+<hr>
+
+<%= link_to 'Add', '/phrases/new', class:"btn btn-primary" %>
+<%= link_to 'Back to main page', root_path, class:"btn btn-primary" %>
+
+<hr>
+
+<h4>Phrase Lists </h4>
+<hr>
+<% @phrases.each do |phrase| %>
+  <li>
+    <em>
+      <%= link_to phrase.body, phrase_path(phrase.id) %>
+    </em>
+    , <%= phrase.value %>
+  </li>
+<% end %>

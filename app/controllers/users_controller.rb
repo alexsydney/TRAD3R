@@ -1,14 +1,20 @@
 class UsersController < ApplicationController
 
-  before_action :check_if_logged_in, only: [:profile]
+   before_action :check_if_logged_in
+  # before_action :check_if_logged_in, only: [:profile]
 
+   before_action :check_if_admin
   # before_action :check_if_admin, only: [:index]
 
   def profile
 
-    @user = @current_user
-    render :show
+    # @user = @current_user
+    # render :show
 
+      # @results = Avatar.where('name LIKE ?', "%#{params[:query]}%")
+
+      # @mine  = Avatar.where user: ??????
+      # @not_mine = Avatar.where user: ??????
   end
 
   # create
