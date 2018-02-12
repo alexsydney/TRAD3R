@@ -1,13 +1,15 @@
 class PagesController < ApplicationController
 
 
-  before_action :check_if_logged_in, only: [:profile]
+  before_action :check_if_logged_in, only: :profile
 
-  before_action :check_if_admin, only: [:admin]
+  before_action :check_if_admin, only: :admin
 
   def home
 
     @avatars = Avatar.all
+
+    # @user = current_user
 
   end
 

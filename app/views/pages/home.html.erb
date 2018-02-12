@@ -1,20 +1,40 @@
 <div class="container">
-<h4>Avatar item for Sale</h4>
-
-<h5>SALE A AVATAR | OWN AVATAR </h5>
 
 
-<div class="row">
-   <% @avatars.each do |avatar| %>
-      <div class="col-sm">
-        <em>
-          <%#= link_to avatar.name, % avatar_path(avatars.id) %>
-        </em>
-        <%= image_tag avatar.src %>
+  <% if @current_user.present? %>
+  <hr>
+  <%= link_to 'Add', '/avatars/new', class:"btn btn-primary" %>
+  <hr>
+  <% end %>
 
-         <%= avatar.value %>
 
-      </div>
-   <% end  %>
- </div>
- 
+  <h4>Avatar Lists </h4>
+  <hr>
+  <div class="row">
+        <% @avatars.each do |avatar| %>
+        <div class="col-sm-3">
+          <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="<%= avatar.src %>" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to avatar.name, avatar_path(avatar.id) %></h5>
+            <p class="card-text"><%= avatar.description %></p>
+          </div>
+            <h4>Price: <%= avatar.value %></h4>
+
+            <% if avatar.is_sale == true %>
+            <a href="#" class="btn btn-primary">BUY NOW</a>
+            <% else %>
+          <span class="no-sale">NOT FOR SALE</span>
+            <% end %>
+
+          </div>
+        </div>
+          <% end %>
+
+
+
+
+  </div>
+
+
+</div>

@@ -5,12 +5,15 @@
 <p><a href="<%= @avatar.src %>"><%= @avatar.name %></a></p>
 <p><%= @avatar.description %></p>
 <p><%= @avatar.value %></p>
-<p><%= @avatar.is_sale %></p>
+<p><% if @avatar.is_sale == true %><button>Buy Now </button><% else %>
+  Not for Sale
+  <% end %>
 
+</p>
 <script>
 // var materialFile = <%= @avatar_model_data.to_json %>;
-var materialFile = <%= @avatar.mat_src %>;
-var objectFile = <%= @avatar.obj_src %>;
+var materialFile = '<%= @avatar.mat_src %>';
+var objectFile = '<%= @avatar.obj_src %>';
 </script>
 
 <script src="/assets/three.js"></script>

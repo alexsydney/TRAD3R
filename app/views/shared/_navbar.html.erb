@@ -23,30 +23,36 @@
           <% end %>
 
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="pages#about">About</a></li>
-            <li>
+            <!-- <li><a href="pages#about">About</a></li> -->
+            <!-- <li>
               <button class="btn btn-form btn-small">
                 <%#= link_to "Become a trader", new_avatar_path  %>
               </button>
-            </li>
+            </li> -->
 
             <% if ( !@current_user.present? ) %>
               <li> <%= link_to "Sign-In", login_path %> </li>
               <li> <%= link_to "Sign-Up", new_user_path %></li>
             <% else %>
-             <li>
-                <%= link_to "#{@current_user.name}", profile_path %>
-             </li>
+             <!-- <li>
+                <%#= link_to "#{@current_user.name}", profile_path %>
+             </li> -->
 
              <li class="dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <%= @current_user.email %>
+                <%= @current_user.name %>
                   <span class="caret"></span>
                 </a>
                <ul class="dropdown-menu">
                  <li><%#= link_to "Dashboard", dashboard_path %></li>
-                 <li><%= link_to "Your Avatar Listing", avatars_path %></li>
-                 <li><%= link_to "Your Phrases Listing", phrases_path %></li>
+                 <% if @current_user.is_admin.present? %>
+                 <li><%= link_to 'Add Avatar', new_avatar_path %>
+                 </li>
+                 <li><%= link_to 'Add Phrase', new_phrase_path %>
+                 </li>
+                  <% end %>
+                 <li><%= link_to "Your Avatars", avatars_path %></li>
+                 <li><%= link_to "Your Phrases", phrases_path %></li>
                  <li><%#= link_to "Your Phrases", your_phrases_path %> </li>
                  <li><%#= link_to "Your Avatar Profit report", your_profit_path %></li>
                  <li role="separator" class="divider"></li>
