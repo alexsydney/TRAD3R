@@ -27,13 +27,15 @@ puts "create #{Phrase.all.length} phrases "
 ###### avatars #####
 Avatar.destroy_all
 
-a1 = Avatar.create src: 'https://www.fillmurray.com/300/200', name: 'avatar 1', description: 'description here', value: 20, is_sale: true
+a1 = Avatar.create src: 'https://www.fillmurray.com/300/200', name: 'avatar 1', description: 'description here', value: 20, is_sale: true, mat_src: 'r2-d2.mtl', obj_src: 'r2-d2.obj'
 
-a2 = Avatar.create src: 'https://www.fillmurray.com/284/196', name: 'avatar 2', description: 'description here', value: 20, is_sale: true
+a2 = Avatar.create src: 'https://www.fillmurray.com/284/196', name: 'avatar 2', description: 'description here', value: 20, is_sale: true, mat_src: 'r2-d2.mtl', obj_src: 'r2-d2.obj'
 
-a3 = Avatar.create src: 'https://www.fillmurray.com/460/300', name: 'avatar 3', description: 'description here', value: 20, is_sale: false
+a3 = Avatar.create src: 'https://www.fillmurray.com/460/300', name: 'avatar 3', description: 'description here', value: 20, is_sale: false, mat_src: 'r2-d2.mtl', obj_src: 'r2-d2.obj'
 
-a4 = Avatar.create src: 'http://www.fillmurray.com/g/400/400', name: 'avatar 4', description: 'description here', value: 20, is_sale: true
+a4 = Avatar.create src: 'http://www.fillmurray.com/g/400/400', name: 'avatar 4', description: 'description here', value: 20, is_sale: true, mat_src: 'r2-d2.mtl', obj_src: 'r2-d2.obj'
+
+
 
 
 puts "create #{Avatar.all.length} avatars "
