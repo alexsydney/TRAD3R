@@ -41,8 +41,14 @@ class AvatarsController < ApplicationController
       @avatars = Avatar.all
   end
 
+  # API
+
+
   def show
     @avatar = Avatar.find params[:id]
+    raise 'hell'
+
+
 
   end
 

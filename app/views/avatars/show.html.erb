@@ -1,14 +1,11 @@
-<div class="container">
 <hr>
 <%= link_to 'Back', "/avatars", class:"btn btn-primary" %>
+
 <hr>
 <p><a href="<%= @avatar.src %>"><%= @avatar.name %></a></p>
 <p><%= @avatar.description %></p>
 <p><%= @avatar.value %></p>
 <p><%= @avatar.is_sale %></p>
-  <viewer>
-  </viewer>
-  </div>
 
 <script>
 // var materialFile = <%= @avatar_model_data.to_json %>;
