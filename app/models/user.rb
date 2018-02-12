@@ -8,4 +8,8 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
+  def can_buy?(item)
+    coins >= item.value
+  end
+
 end

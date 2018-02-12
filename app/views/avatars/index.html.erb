@@ -21,7 +21,7 @@
             <h4>Price: <%= avatar.value %></h4>
 
             <% if avatar.is_sale == true %>
-            <a href="#" class="btn btn-primary">BUY NOW</a>
+            <a href="<%= avatar_path(avatar.id) %>" class="btn btn-primary">VIEW</a>
             <% else %>
           <span class="no-sale">NOT FOR SALE</span>
             <% end %>

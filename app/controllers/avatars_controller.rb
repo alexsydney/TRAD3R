@@ -1,6 +1,8 @@
 class AvatarsController < ApplicationController
+  # before_action check_if_owner only: :order
+  # before_action check_has_coins only: :order
 
-  before_action :check_if_logged_in, only: [:new, :create, :edit, :update, :destroy]
+  before_action :check_if_logged_in, only: [:new, :create, :edit, :update, :destroy, :order]
 
   # Create
   def new
@@ -35,6 +37,46 @@ class AvatarsController < ApplicationController
   def search
     @results = Avatar.where('name LIKE ?', "%#{params[:query]}%")
   end
+  #
+  # def check_if_owner
+  #   avatar = Avatar.find_by id: :params
+  #    if avatar.is_owner? @current_user
+  #      flash[:errors] = "You already own this."
+  #      # redirect_to avatar_path
+  #      redirect_to request.referrer
+  #    end
+  #
+  # end
+
+  # def check_has_coins
+  #     avatar = Avatar.find_by id: :params
+  #     if avatar.can_buy?
+  #        flash[:errors] = "You don't have enough coins."
+  #        redirect_to request.referrer
+  #     end
+  # end
+
+
+
+  # orde
+  def order
+
+    avatar = Avatar.find params[:id]
+
+    if (avatar.user_id)
+
+    end
+
+    # if (avatar.user_id ==  @current_user.id ) && (current_user.coins <
+    #   avatar.value)
+    #   flash[:errors] = avatar.errors.full_messages
+    #     redirect_to login_path
+    # else
+    #
+    # end
+
+  end
+
 
   # List
   def index
@@ -47,6 +89,7 @@ class AvatarsController < ApplicationController
   def show
     @avatar = Avatar.find params[:id]
     # raise 'hell'
+
 
 
 

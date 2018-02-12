@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   resources :users
 
   # setup for profile
-  get '/profile' => 'users#profile'
+  # get '/profile' => 'users#profile'
 
   # setup for is_admin
   get '/admin' => 'users#admin'
@@ -39,6 +39,7 @@ Rails.application.routes.draw do
       get 'price'
       get 'description'
       get 'your_profit'
+      
 
     end
 
@@ -52,7 +53,7 @@ Rails.application.routes.draw do
 
   # setup for phrases
   # resources :phrases
-  
+
   # setup for your_phrases_path
   get 'phrases/your_phrases' =>  'phrases#your_phrases'
 
