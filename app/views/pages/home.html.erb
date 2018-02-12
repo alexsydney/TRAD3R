@@ -1,2 +1,20 @@
-
+<div class="container">
 <h4>Avatar item for Sale</h4>
+
+<h5>SALE A AVATAR | OWN AVATAR </h5>
+
+
+<div class="row">
+   <% @avatars.each do |avatar| %>
+      <div class="col-sm">
+        <em>
+          <%#= link_to avatar.name, % avatar_path(avatars.id) %>
+        </em>
+        <%= image_tag avatar.src %>
+
+         <%= avatar.value %>
+
+      </div>
+   <% end  %>
+ </div>
+ 

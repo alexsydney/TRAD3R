@@ -55,7 +55,7 @@ class UsersController < ApplicationController
 
   # Read
   def index
-    @user = User.all
+    @users = User.all
 
   end
 

@@ -10,24 +10,24 @@
     <%= cloudinary_js_config%>
 
   </head>
-<div class="container">
-
   <body>
-    <%= render 'shared/navbar'%>
+
+    <div class="container">
+      <%= render 'shared/navbar'%>
+      <hr>
+      <br>
+      <h3>Welcome to Trad3r</h3>
+     <hr>
+      <%= yield %>
+
+      <br>
+
+    </div>
+
+  <footer>
     <hr>
-    <br>
-    <h3>Welcome to Trad3r</h3>
-   <hr>
-    <%= yield %>
-
-    <br>
-    <footer>
-      <hr>
-      &copy; 2018 Project 2 - Group project - Alex Pham - Amir Hafizovic
-      <hr>
-    </footer>
-  </body>
-
-</div>
-
+    &copy; 2018 Project 2 - Group project - Alex Pham - Amir Hafizovic
+    <hr>
+  </footer>
+</body>
 </html>
