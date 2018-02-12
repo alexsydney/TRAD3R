@@ -1,3 +1,4 @@
+<div class="container">
 <hr>
 <%= link_to 'Back', "/avatars", class:"btn btn-primary" %>
 <hr>
@@ -5,3 +6,19 @@
 <p><%= @avatar.description %></p>
 <p><%= @avatar.value %></p>
 <p><%= @avatar.is_sale %></p>
+  <viewer>
+  </viewer>
+  </div>
+
+<script>
+// var materialFile = <%= @avatar_model_data.to_json %>;
+var materialFile = <%= @avatar.mat_src %>;
+var objectFile = <%= @avatar.obj_src %>;
+</script>
+
+<script src="/assets/three.js"></script>
+<script src='/assets/OrbitControls.js'></script>
+<script src="/assets/MTLLoader.js"></script>
+<script src="/assets/OBJLoader.js"></script>
+<script src="/assets/Detector.js"></script>
+<script src="/assets/main.js"></script>
