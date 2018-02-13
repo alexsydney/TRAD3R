@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
+  get '/logout' => 'session#destroy'
 
   # setup for guest login
   get '/login'  => 'session#guest'
@@ -32,15 +33,24 @@ Rails.application.routes.draw do
   # setup for search avatar name
   get '/avatars/search' => 'avatars#search'
 
+  get 'messages' => 'avatars#show_messages'
   # setup for avatars
   resources :avatars, except: [:edit] do
     member do
-      get 'listing'
-      get 'price'
-      get 'description'
+      # get 'listing'
+      # get 'price'
+      # get 'description'
       get 'your_profit'
-      
+      post 'transaction'
 
+
+    end
+
+    resources :conversations, only: [:create] do
+      member do
+        post :close
+      end
+      resources :messages, only: [:create]
     end
 
     # setup for photos

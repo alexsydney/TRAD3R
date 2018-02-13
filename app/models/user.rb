@@ -4,6 +4,9 @@ class User < ApplicationRecord
 
   has_many :avatars
 
+  has_many :messages
+  has_many :conversations, foreign_key: :sender_id
+
   validates :email, presence: true, uniqueness: true
 
   validates :name, presence: true

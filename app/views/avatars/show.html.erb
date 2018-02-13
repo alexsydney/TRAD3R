@@ -3,14 +3,27 @@
 
 <hr>
 <p><a href="<%= @avatar.src %>"><%= @avatar.name %></a></p>
+<p><%= @avatar.id %></p>
 <p><%= @avatar.description %></p>
 <p><%= @avatar.value %></p>
 <% if @current_user.present? %>
-<p><% if @avatar.is_sale? && !@avatar.is_owner?( @current_user ) && @current_user.can_buy?( @avatar ) %><button type="submit" id="submit" class="btn btn-primary">Buy Now </button><% else %>
-  Not for Sale
-  <% end %>
+<% if @avatar.is_owner?( @current_user ) %>
+<p><%= link_to 'Edit', avatar_path, class:"btn btn-primary"  %>
+  <%= link_to 'Delete', avatar_path, method: :delete, class:"btn btn-primary" %></p>
+      <% elsif !@avatar.is_sale? %>
+        <p><strong>Sorry, this item is not for sale</strong></p>
+      <% elsif @current_user.can_buy?( @avatar ) %>
+        <!-- <button type="submit" id="submit" class="btn btn-primary", order_avatar_path>Buy Now</button> -->
+      <%= button_to 'BUY NOW', transaction_avatar_path %>
+      <% end %>
+<% else %>
+     <p>To Purchase, Please <%= link_to "Sign-In", login_path, class:"btn btn-primary" %> or <%= link_to "Sign-Up",  new_user_path, class:"btn btn-primary" %></p>
 <% end %>
 </p>
+<p>Test use Cloudinary</p>
+<p><%= cl_image_tag @avatar.mat_src  %></p>
+<br>
+<p><%=  cl_image_tag @avatar.obj_src  %></p>
 <script>
 // var materialFile = <%= @avatar_model_data.to_json %>;
 var materialFile = '<%= @avatar.mat_src %>';

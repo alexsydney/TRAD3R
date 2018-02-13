@@ -7,7 +7,7 @@ u1 = User.create  name:'Alex', email:'alex@gmail.com', password: 'chicken', coin
 u2 = User.create name:'Amir', email: 'amir@gmail.com',
 password:'chicken', coins: 100, is_admin: true
 
-u3 = User.create  name:'James', email:'james@gmail.com', password:'chicken', coins: 100, is_admin: true
+u3 = User.create  name:'James', email:'james@gmail.com', password:'chicken', coins: 100, is_admin: false
 
 u4 = User.create  name:'Test', email:'test@gmail.com', password:'chicken', coins: 100, is_admin: false
 
@@ -58,7 +58,7 @@ puts "create #{Avatar.all.length} avatars "
 
 u1.avatars << a1 << a4 << a7 << a9
 u2.avatars << a2 << a5 << a6 << a10
-u3.avatars << a3
+u3.avatars << a3 << a8
 u4.avatars << a11 << a12
 
 a1.phrases << p1 << p2

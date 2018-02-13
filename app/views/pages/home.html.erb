@@ -6,8 +6,6 @@
   <%= link_to 'Add', '/avatars/new', class:"btn btn-primary" %>
   <hr>
   <% end %>
-
-
   <h4>Avatar Lists </h4>
   <hr>
   <div class="row">
@@ -19,10 +17,11 @@
             <h5 class="card-title"><%= link_to avatar.name, avatar_path(avatar.id) %></h5>
             <p class="card-text"><%= avatar.description %></p>
           </div>
+          <h4>ID: <%= avatar.id %></h4>
             <h4>Price: <%= avatar.value %></h4>
 
             <% if avatar.is_sale == true %>
-            <a href="<%= avatar_path(avatar.id) %>" class="btn btn-primary">BUY NOW</a>
+            <a href="<%= avatar_path(avatar.id) %>" class="btn btn-primary">VIEW</a>
             <% else %>
           <span class="no-sale">NOT FOR SALE</span>
             <% end %>

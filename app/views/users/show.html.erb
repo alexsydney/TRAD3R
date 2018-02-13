@@ -1,1 +1,38 @@
 <h4> Profile </h4>
+<% if @current_user.present? %>
+<hr>
+<%= link_to 'Add', '/avatars/new', class:"btn btn-primary" %>
+<hr>
+<% end %>
+
+<h4>Avatar Lists </h4>
+<hr>
+<div class="row">
+      <% @avatars.each do |avatar| %>
+      <div class="col-sm-3">
+        <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="<%= avatar.src %>" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= link_to avatar.name, avatar_path(avatar.id) %></h5>
+          <p class="card-text"><%= avatar.description %></p>
+        </div>
+        <h4>ID: <%= avatar.id %></h4>
+          <h4>Price: <%= avatar.value %></h4>
+
+          <% if avatar.is_sale == true %>
+          <a href="<%= avatar_path(avatar.id) %>" class="btn btn-primary">VIEW</a>
+          <% else %>
+        <span class="no-sale">NOT FOR SALE</span>
+          <% end %>
+
+        </div>
+      </div>
+        <% end %>
+
+
+
+
+</div>
+
+
+</div>

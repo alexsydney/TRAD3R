@@ -14,8 +14,8 @@
  *= require_self
  */
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
+// @import "bootstrap-sprockets";
+// @import "bootstrap";
 
 
 body {
@@ -34,9 +34,40 @@ img {
    background-color: grey;
  }
 
-.card {
-     margin-bottom: 30px;
+ .card {
+      margin-bottom: 30px;
+  }
+ .no-sale{
+   color: red;
  }
-.no-sale{
-  color: red;
-}
+ // a.btn.btn-raised.btn-primary {
+ //     width: 220px;
+ //     margin: 0 auto;
+ //     margin-bottom: 30px;
+ // }
+ .btn.btn-outline-primary {
+     margin: 20px;
+ }
+ .coin img {
+   width:35px;
+ }
+ .coin {
+     color: #fdca41;
+     font-size: 1.5em;
+     font-weight: bold;
+     vertical-align: middle;
+     margin-bottom: 3px;
+ }
+ .coin span {
+   text-decoration: none !important;
+ }
+
+ .navbar-nav li {
+     align-self:center
+ }
+ .card-body {
+     padding-bottom: 0;
+ }
+ form.form-inline.my-2.my-lg-0 {
+   justify-content: center;
+ }

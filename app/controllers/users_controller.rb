@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
 
-   before_action :check_if_logged_in, except: :new
+   before_action :check_if_logged_in, except: [:new, :show]
+
+
   # before_action :check_if_logged_in, only: [:profile]
 
-   before_action :check_if_admin, except: :new
+   before_action :check_if_admin, except: [:new, :show]
   # before_action :check_if_admin, only: [:index]
 
   def profile
@@ -61,6 +63,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find params[:id]
+    @avatars = Avatar.where user_id: params[:id]
+    # @avatar = Avatar.find user_id: @user.id
+    # raise 'hell'
+
   end
 
   # Update/edit

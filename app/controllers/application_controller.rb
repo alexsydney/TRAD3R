@@ -20,13 +20,23 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # def check_if_owner
+  #   avatar = Avatar.find_by id: :params
+  #    if avatar.user_id == @current_user.id
+  #     flash[:errors] = "You already own this."
+  #       # redirect_to avatar_path
+  #       redirect_to request.referrer
+  #    end
+  #
+  # end
+
   private
 
   def fetch_user
 
     if session[:user_id].present?
       @current_user = User.find_by id: session[:user_id]
-      
+
     end
 
     session[:user_id] = nil unless @current_user.present?
