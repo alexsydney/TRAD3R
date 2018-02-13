@@ -1,8 +1,8 @@
 class AvatarsController < ApplicationController
-  # before_action check_if_owner only: :order
-  # before_action check_has_coins only: :order
 
-  before_action :check_if_logged_in, only: [:new, :create, :edit, :update, :destroy, :order, :show_messages]
+  before_action :check_if_logged_in, only: [:new, :create, :edit, :update, :destroy, :order]
+
+  before_action :check_if_admin, only: [:new, :create,  :destroy, :order]
 
   # Create
   def new
@@ -49,47 +49,45 @@ class AvatarsController < ApplicationController
     @results = Avatar.where('name LIKE ?', "%#{params[:query]}%")
   end
 
-
   # order
   def transaction
 
     # user_id = @current_user.id
-    avatar = Avatar.find params[:id]
+    @avatar = Avatar.find params[:id]
     # get user_id for seller from this avatar
-    seller = User.find_by id:avatar.user_id
+    @seller = User.find_by id:@avatar.user_id
     # check this avatar is it for sale?
-    if !avatar.is_sale?
+    if !@avatar.is_sale?
       flash[:errors] = "This item is not for sale."
-    elsif avatar.is_owner?(@current_user)
+    elsif @avatar.is_owner?(@current_user)
       flash[:errors] = "You already own this item."
-    elsif @current_user.can_buy?(avatar)
+    elsif @current_user.can_buy?(@avatar)
 
       # take out coins from buyer
-      @current_user.update coins: @current_user.coins - avatar.value
+      @current_user.update coins: @current_user.coins - @avatar.value
 
       # add coins amount to seller
-      seller.update coins: seller.coins + avatar.value
+      @seller.update coins: @seller.coins + @avatar.value
        # raise 'hell'
       # update the new ownership of avatar to buyer
-      avatar.update user_id: @current_user.id
+      @avatar.update user_id: @current_user.id
 
       # reset a status of avatar is_sale is false
-      avatar.update is_sale: false
+      @avatar.update is_sale: false
+
+
+      @buyer = @current_user
+
+      # render json: @messages
+
+
+      render json: @buyer, status: :ok
 
     end
 
+
   end
 
-  def show_messages
-
-
-    @avatars = Avatar.all
-
-    session[:conversations] ||= []
-
-    @users = User.all.where.not(id: @current_user)
-    @conversations = Conversation.includes(:recipient, :messages).find(session[:conversations])
-  end
 
   # List
   def index
@@ -103,25 +101,22 @@ class AvatarsController < ApplicationController
     @avatar = Avatar.find params[:id]
     # raise 'hell'
 
-
-
-
   end
 
   # edit/update
   def edit
 
-      @avatar = Avatar.find params[:id]
+    @avatar = Avatar.find params[:id]
 
   end
 
   def update
 
-        avatar = Avatar.find params[:id]
+    avatar = Avatar.find params[:id]
 
-        avatar.update avatar_params
+    avatar.update avatar_params
 
-        redirect_to avatar_path
+    redirect_to avatar_path
   end
 
   # Delete
@@ -157,8 +152,15 @@ class AvatarsController < ApplicationController
   private
 
   def avatar_params
-    params.require(:avatar).permit(:src,
-      :name, :description, :value, :user_id, :is_sale, :mat_src, :obj_src)
+
+    if @current_user && @current_user.is_admin?
+      params.require(:avatar).permit(:src,
+        :name, :description, :value, :user_id, :is_sale, :mat_src, :obj_src)
+    else
+      params.require(:avatar).permit(:name, :description, :value, :user_id, :is_sale)
+
+    end
+
 
   end
 

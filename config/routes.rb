@@ -34,15 +34,13 @@ Rails.application.routes.draw do
 
   get 'messages' => 'avatars#show_messages'
   # setup for avatars
-  resources :avatars, except: [:edit] do
+  resources :avatars do
     member do
-      # get 'listing'
-      # get 'price'
-      # get 'description'
-      get 'your_profit'
-<<<<<<< HEAD
-      post 'transaction'
 
+      get 'your_profit'
+
+      post 'transaction'
+  
 
     end
 
@@ -51,10 +49,10 @@ Rails.application.routes.draw do
         post :close
       end
       resources :messages, only: [:create]
-=======
+
 
       post 'order'
->>>>>>> transactions
+
     end
 
     # setup for photos

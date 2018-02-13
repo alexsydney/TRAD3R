@@ -1,6 +1,5 @@
-<hr>
+<br>
 <%= link_to 'Back', "/avatars", class:"btn btn-primary" %>
-
 <hr>
 <p><a href="<%= @avatar.src %>"><%= @avatar.name %></a></p>
 <p><%= @avatar.id %></p>
@@ -8,23 +7,26 @@
 <p><%= @avatar.value %></p>
 <% if @current_user.present? %>
 <% if @avatar.is_owner?( @current_user ) %>
-<p><%= link_to 'Edit', avatar_path, class:"btn btn-primary"  %>
+<p><%= link_to 'Edit', edit_avatar_path(@avatar.id), class:"btn btn-primary"  %>
   <%= link_to 'Delete', avatar_path, method: :delete, class:"btn btn-primary" %></p>
       <% elsif !@avatar.is_sale? %>
         <p><strong>Sorry, this item is not for sale</strong></p>
       <% elsif @current_user.can_buy?( @avatar ) %>
-        <!-- <button type="submit" id="submit" class="btn btn-primary", order_avatar_path>Buy Now</button> -->
-      <%= button_to 'BUY NOW', transaction_avatar_path %>
+
+      <button id="buy" class="btn btn-default">BUY NOW</button>
+
       <% end %>
 <% else %>
      <p>To Purchase, Please <%= link_to "Sign-In", login_path, class:"btn btn-primary" %> or <%= link_to "Sign-Up",  new_user_path, class:"btn btn-primary" %></p>
 <% end %>
-</p>
-<p>Test use Cloudinary</p>
-<p><%= cl_image_tag @avatar.mat_src  %></p>
-<br>
-<p><%=  cl_image_tag @avatar.obj_src  %></p>
+
+<div id="trans-message" style="display:none;"></div>
+
+ <div id="3d-view"></div>
 <script>
+
+var transLink = '<%= transaction_avatar_path %>';
+
 // var materialFile = <%= @avatar_model_data.to_json %>;
 var materialFile = '<%= @avatar.mat_src %>';
 var objectFile = '<%= @avatar.obj_src %>';
@@ -32,9 +34,9 @@ var objectFile = '<%= @avatar.obj_src %>';
 </script>
 
 
-<script src="/assets/three.js"></script>
-<script src='/assets/OrbitControls.js'></script>
-<script src="/assets/MTLLoader.js"></script>
-<script src="/assets/OBJLoader.js"></script>
-<script src="/assets/Detector.js"></script>
-<script src="/assets/main.js"></script>
+<script src="/assets/three/three.js"></script>
+<script src='/assets/three/OrbitControls.js'></script>
+<script src="/assets/three/MTLLoader.js"></script>
+<script src="/assets/three/OBJLoader.js"></script>
+<script src="/assets/three/Detector.js"></script>
+<script src="/assets/three/main.js"></script>

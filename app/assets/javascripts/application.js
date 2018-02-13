@@ -14,7 +14,3 @@
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require_tree .
-//= require three
-//= require Detector
-//= require main
-//= require OrbitControls
