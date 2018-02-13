@@ -6,17 +6,26 @@
 <p><%= @avatar.description %></p>
 <p><%= @avatar.value %></p>
 <% if @current_user.present? %>
-<p><% if @avatar.is_sale? && !@avatar.is_owner?( @current_user ) && @current_user.can_buy?( @avatar ) %><button type="submit" id="submit" class="btn btn-primary">Buy Now </button><% else %>
-  Not for Sale
+  <% if !@avatar.is_sale? %>
+  <p>Sorry, this item is not for sale.</p>
+  <% elsif @avatar.is_owner?( @current_user )%>
+  <p><a href="#">EDIT</a> | <a href="#">DELETE</a></p>
+  <% elsif @current_user.can_buy?( @avatar ) %>
+  <%= button_to 'BUY NOW', order_avatar_path %>
   <% end %>
+<% else %>
+  <p>To Purchase, Please <%= link_to "Sign-In", login_path %> or <%= link_to "Sign-Up", new_user_path %></p>
 <% end %>
-</p>
+<div id="3d-view"></div>
+
+
 <script>
 // var materialFile = <%= @avatar_model_data.to_json %>;
 var materialFile = '<%= @avatar.mat_src %>';
 var objectFile = '<%= @avatar.obj_src %>';
 
 </script>
+
 
 <script src="/assets/three.js"></script>
 <script src='/assets/OrbitControls.js'></script>

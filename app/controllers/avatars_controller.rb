@@ -37,45 +37,26 @@ class AvatarsController < ApplicationController
   def search
     @results = Avatar.where('name LIKE ?', "%#{params[:query]}%")
   end
-  #
-  # def check_if_owner
-  #   avatar = Avatar.find_by id: :params
-  #    if avatar.is_owner? @current_user
-  #      flash[:errors] = "You already own this."
-  #      # redirect_to avatar_path
-  #      redirect_to request.referrer
-  #    end
-  #
-  # end
-
-  # def check_has_coins
-  #     avatar = Avatar.find_by id: :params
-  #     if avatar.can_buy?
-  #        flash[:errors] = "You don't have enough coins."
-  #        redirect_to request.referrer
-  #     end
-  # end
-
 
 
   # orde
-  def order
-
-    avatar = Avatar.find params[:id]
-
-    if (avatar.user_id)
-
-    end
-
-    # if (avatar.user_id ==  @current_user.id ) && (current_user.coins <
-    #   avatar.value)
-    #   flash[:errors] = avatar.errors.full_messages
-    #     redirect_to login_path
-    # else
-    #
-    # end
-
-  end
+  # def order
+  #
+  #   avatar = Avatar.find params[:id]
+  #   seller = User.find_by id:avatar.user_id
+  #
+  #   if !avatar.is_sale? flash[:errors] = "This item is not for sale."
+  #       # redirect_to request.referrer
+  #
+  #     raise 'hell'
+  #   elsif avatar.is_owner?( @current_user ) flash[:errors] = "You already own this item."
+  #         # redirect_to request.referrer
+  #
+  #   else @current_user.can_buy?( avatar ) @current_user.update coins: @current_user.coins - avatar.value && seller.update coins: seller.coins + avatar.value && avatar.update user_id: @current_user.id
+  #     redirect_to avatar_path
+  #   end
+  #
+  # end
 
 
   # List
