@@ -48,25 +48,6 @@ class AvatarsController < ApplicationController
   def search
     @results = Avatar.where('name LIKE ?', "%#{params[:query]}%")
   end
-  #
-  # def check_if_owner
-  #   avatar = Avatar.find_by id: :params
-  #    if avatar.is_owner? @current_user
-  #      flash[:errors] = "You already own this."
-  #      # redirect_to avatar_path
-  #      redirect_to request.referrer
-  #    end
-  #
-  # end
-
-  # def check_has_coins
-  #     avatar = Avatar.find_by id: :params
-  #     if avatar.can_buy?
-  #        flash[:errors] = "You don't have enough coins."
-  #        redirect_to request.referrer
-  #     end
-  # end
-
 
 
   # order
@@ -85,7 +66,7 @@ class AvatarsController < ApplicationController
 
       # take out coins from buyer
       @current_user.update coins: @current_user.coins - avatar.value
-          
+
       # add coins amount to seller
       seller.update coins: seller.coins + avatar.value
        # raise 'hell'

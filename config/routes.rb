@@ -15,7 +15,6 @@ Rails.application.routes.draw do
   # setup for login routes
   get '/login' => 'session#new'
   post '/login' => 'session#create'
-  delete '/login' => 'session#destroy'
   get '/logout' => 'session#destroy'
 
   # setup for guest login
@@ -41,6 +40,7 @@ Rails.application.routes.draw do
       # get 'price'
       # get 'description'
       get 'your_profit'
+<<<<<<< HEAD
       post 'transaction'
 
 
@@ -51,6 +51,10 @@ Rails.application.routes.draw do
         post :close
       end
       resources :messages, only: [:create]
+=======
+
+      post 'order'
+>>>>>>> transactions
     end
 
     # setup for photos
