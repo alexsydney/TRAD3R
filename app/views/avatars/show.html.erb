@@ -1,5 +1,5 @@
 <br>
-<%= link_to 'Back', "/avatars", class:"btn btn-primary" %>
+<%= link_to 'Back', avatars_path, class:"btn btn-primary" %>
 <hr>
 <p><a href="<%= @avatar.src %>"><%= @avatar.name %></a></p>
 <p><%= @avatar.id %></p>
@@ -12,14 +12,12 @@
       <% elsif !@avatar.is_sale? %>
         <p><strong>Sorry, this item is not for sale</strong></p>
       <% elsif @current_user.can_buy?( @avatar ) %>
-
-      <button id="buy" class="btn btn-default">BUY NOW</button>
-
+        <!-- <button type="submit" id="submit" class="btn btn-primary", order_avatar_path>Buy Now</button> -->
+      <%= button_to 'BUY NOW', transaction_avatar_path, class: "btn btn-primary btn-raised" %>
       <% end %>
 <% else %>
      <p>To Purchase, Please <%= link_to "Sign-In", login_path, class:"btn btn-primary" %> or <%= link_to "Sign-Up",  new_user_path, class:"btn btn-primary" %></p>
 <% end %>
-
 <div id="trans-message" style="display:none;"></div>
 
  <div id="3d-view"></div>

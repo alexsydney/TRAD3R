@@ -38,9 +38,10 @@ Rails.application.routes.draw do
     member do
 
       get 'your_profit'
+      post 'transaction'
 
       post 'transaction'
-  
+
 
     end
 
