@@ -1,6 +1,5 @@
-<hr>
-<%= link_to 'Back', "/avatars", class:"btn btn-primary" %>
-
+<br>
+<%= link_to 'Back', avatars_path, class:"btn btn-primary" %>
 <hr>
 <p><a href="<%= @avatar.src %>"><%= @avatar.name %></a></p>
 <p><%= @avatar.id %></p>
@@ -14,16 +13,12 @@
         <p><strong>Sorry, this item is not for sale</strong></p>
       <% elsif @current_user.can_buy?( @avatar ) %>
         <!-- <button type="submit" id="submit" class="btn btn-primary", order_avatar_path>Buy Now</button> -->
-      <%= button_to 'BUY NOW', transaction_avatar_path %>
+      <%= button_to 'BUY NOW', transaction_avatar_path, class: "btn btn-primary btn-raised" %>
       <% end %>
 <% else %>
      <p>To Purchase, Please <%= link_to "Sign-In", login_path, class:"btn btn-primary" %> or <%= link_to "Sign-Up",  new_user_path, class:"btn btn-primary" %></p>
 <% end %>
-</p>
-<p>Test use Cloudinary</p>
-<p><%= cl_image_tag @avatar.mat_src  %></p>
-<br>
-<p><%=  cl_image_tag @avatar.obj_src  %></p>
+
 <script>
 // var materialFile = <%= @avatar_model_data.to_json %>;
 var materialFile = '<%= @avatar.mat_src %>';

@@ -40,7 +40,6 @@ Rails.application.routes.draw do
       # get 'price'
       # get 'description'
       get 'your_profit'
-<<<<<<< HEAD
       post 'transaction'
 
 
@@ -51,10 +50,10 @@ Rails.application.routes.draw do
         post :close
       end
       resources :messages, only: [:create]
-=======
+
 
       post 'order'
->>>>>>> transactions
+
     end
 
     # setup for photos
