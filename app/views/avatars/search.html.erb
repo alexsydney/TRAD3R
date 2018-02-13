@@ -1,7 +1,24 @@
-<h4>search results</h4>
-<% @results.each do |result| %>
-  <%= result.name %><br/>
-  <%= result.src %> <br/>
-  <%= result.value %> <br/>
-  <%= result.is_sale %> <br/>
-<% end %>
+<h1>Search Results</h1>
+<br>
+<div class="row">
+  <% @avatars.each do |avatar| %>
+  <div class="col-md-4 col-6">
+    <div class="card">
+      <img class="card-img-top" src="<%= avatar.src %>" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to avatar.name, avatar_path(avatar.id) %>
+          <p class="coin"><img src="https://orig00.deviantart.net/712c/f/2010/236/2/e/spinning_coin___animation_by_mantastic001.gif"><span><%= avatar.value %></span></p></h5>
+          <h4>ID: <%= avatar.id %></h4>
+          <p class="card-text"><%= avatar.description %></p>
+      
+        </div>
+        <% if avatar.is_sale == true %>
+        <%= link_to 'View', avatar_path(avatar.id), class:"btn btn-primary" %>
+        <% else %>
+        <button class="btn btn-danger">NOT FOR SALE</button>
+        <% end %>
+
+      </div>
+    </div>
+    <% end %>
+  </div>

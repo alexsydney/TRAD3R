@@ -38,15 +38,20 @@ class AvatarsController < ApplicationController
 
   end
 
-  # Read
+
   def home
     @avatars = Avatar.all
 
   end
 
+  # Read
+  def index
+      @avatars = Avatar.all
+  end
+
   # search
   def search
-    @results = Avatar.where('name LIKE ?', "%#{params[:query]}%")
+    @avatars = Avatar.where('name ILIKE ?', "%#{params[:query]}%")
   end
 
   # order
@@ -87,14 +92,6 @@ class AvatarsController < ApplicationController
 
 
   end
-
-
-  # List
-  def index
-      @avatars = Avatar.all
-  end
-
-  # API
 
 
   def show

@@ -13,9 +13,9 @@
             <p class="card-text"><%= avatar.description %></p>
             <% if avatar.is_sale %>
             <% end %>
-            <% if avatar.user_id == @current_user.id %>
-            <%= link_to 'Edit', edit_avatar_path(avatar.id), class: "btn btn-primary" %>
-            <% end %>
+            <%# if avatar.user_id == @current_user.id %>
+            <%#= link_to 'Edit', edit_avatar_path(avatar.id), class: "btn btn-primary" %>
+            <%# end %>
           </div>
             <% if avatar.is_sale == true %>
             <%= link_to 'View', avatar_path(avatar.id), class:"btn btn-primary" %>
