@@ -63,7 +63,6 @@ mtlLoader.load(materialFile, function (materials) {
 });
 
 
-
 var animate = function () {
 	requestAnimationFrame( animate );
 	controls.update();
@@ -73,6 +72,7 @@ var animate = function () {
 if (Detector.webgl) {
     // Initiate function or other initializations here
     animate();
+
 } else {
     var warning = Detector.getWebGLErrorMessage();
     document.getElementById('container').appendChild(warning);

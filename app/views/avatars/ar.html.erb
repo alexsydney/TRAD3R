@@ -4,12 +4,18 @@
 <a-scene embedded arjs="sourceType: webcam;">
   <a-marker preset="hiro">
     <!-- Adding an OBJ file to an AR Project-->
+    <a-asset-item id="tree-obj" src="http://localhost:3000/3d/r2-d2.obj"></a-asset-item>
+    <a-asset-item id="tree-mtl" src="http://localhost:3000/3d/r2-d2.mtl"></a-asset-item>
+    <a-entity obj-model="obj: #tree-obj; mtl: #tree-mtl" rotation="-90 0 0" scale="0.01 0.01 0.01" position="0 0 0"></a-entity>
     <a-entity
-  obj-model="obj: url(http://localhost:3000/3d/r2-d2.obj);
-        mtl: url(http://localhost:3000/3d/r2-d2.mtl)"; rotation="-90 0 0"; scale="0.01 0.01 0.01";>
+  obj-model="obj: url(http://localhost:3000/3d/fluttershy.obj);
+        mtl: url(http://localhost:3000/3d/fluttershy.mtl)" rotation="-90 0 0" scale="0.1 0.1 0.1" position="-1 0 -0.5">
     </a-entity>
+    <a-text value="Hello, World!" position="0.5 0.2 -1.1" rotation="-90 0 0"></a-text>
 
   </a-marker>
+  <!-- <a-camera>
+</a-camera> -->
 <a-entity camera>
 </a-entity>
 </a-scene>
