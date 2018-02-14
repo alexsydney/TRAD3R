@@ -28,6 +28,8 @@ class UsersController < ApplicationController
 
   def create
 
+    is_admin = false
+    
     user = User.create user_params
 
     if user.persisted? # user.persisted  # user.id.present?
@@ -39,7 +41,7 @@ class UsersController < ApplicationController
       #   user.image = req["public_id"]
       # end
 
-      # user.save
+      user.save
 
       redirect_to user
 
@@ -105,7 +107,7 @@ class UsersController < ApplicationController
 
   def user_params
 
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :coins, :is_admin)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :coins)
 
   end
 
