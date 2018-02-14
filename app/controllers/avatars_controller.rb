@@ -1,8 +1,15 @@
 class AvatarsController < ApplicationController
 
+
   before_action :check_if_logged_in, only: [:new, :create, :edit, :update, :destroy, :order]
 
   before_action :check_if_admin, only: [:new, :create,  :destroy, :order]
+
+
+
+
+
+
 
   # Create
   def new
@@ -96,7 +103,10 @@ class AvatarsController < ApplicationController
 
   def show
     @avatar = Avatar.find params[:id]
-    # raise 'hell'
+    #raise 'hell'
+    require 'rqrcode'
+
+    @qr = RQRCode::QRCode.new( 'http://localhost:3000/avatars/' + @avatar.id.to_s + '/ar', :size => 6, :level => :h )
 
   end
 
