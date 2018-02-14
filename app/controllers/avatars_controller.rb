@@ -39,9 +39,9 @@ class AvatarsController < ApplicationController
   end
 
 
-  def home
-    @avatars = Avatar.all
-
+  def ar
+    @avatar = Avatar.find params[:id]
+    #raise 'hell'
   end
 
   # Read
