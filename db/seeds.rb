@@ -1,5 +1,7 @@
 #### SEED DATA #####
 
+ActiveRecord::Base.logger.level = 1  # hide SQL statements
+
 User.destroy_all
 
 u1 = User.create  name:'Alex', email:'alex@gmail.com', password: 'chicken', coins: 100, is_admin: true
