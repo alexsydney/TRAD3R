@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
 
-   before_action :check_if_logged_in, except: [:new, :show]
+   before_action :check_if_logged_in, except: [:new, :create, :show, :profile]
 
 
   # before_action :check_if_logged_in, only: [:profile]
 
-   before_action :check_if_admin, except: [:new, :show]
+   before_action :check_if_admin, except: [:new, :create, :show, :profile]
   # before_action :check_if_admin, only: [:index]
 
   def profile
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
     user = User.create user_params
 
-    if user.id.present? # user.presisted
+    if user.persisted? # user.persisted  # user.id.present?
       session[:user_id] = user.id
 
       # if params[:file].present?
@@ -39,9 +39,9 @@ class UsersController < ApplicationController
       #   user.image = req["public_id"]
       # end
 
-      user.save
+      # user.save
 
-      redirect_to profile_path
+      redirect_to user
 
     else
 
