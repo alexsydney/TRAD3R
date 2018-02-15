@@ -49,6 +49,7 @@ class AvatarsController < ApplicationController
   def ar
     @avatar = Avatar.find params[:id]
     #raise 'hell'
+    #@phrase = @avatar.phrases.first
   end
 
   # Read
@@ -104,10 +105,12 @@ class AvatarsController < ApplicationController
   def show
     @avatar = Avatar.find params[:id]
     #raise 'hell'
-    require 'rqrcode'
-
-    @qr = RQRCode::QRCode.new( 'http://localhost:3000/avatars/' + @avatar.id.to_s + '/ar', :size => 6, :level => :h )
-
+    #require 'rqrcode'
+    if Rails.env.development?
+      @qr = RQRCode::QRCode.new( request.host_with_port + ar_path, :size => 4, :level => :h )
+    else
+      @qr = RQRCode::QRCode.new( request.domain + ar_path, :size => 4, :level => :h )
+    end
   end
 
   # edit/update

@@ -5,7 +5,7 @@
       <% @avatars.each do |avatar| %>
       <div class="col-md-4 col-6">
         <div class="card">
-        <img class="card-img-top" src="<%= avatar.src %>" alt="Card image cap">
+        <img class="card-img-top" src="/assets/<%= avatar.src %>" alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title"><%= link_to avatar.name, avatar_path(avatar.id) %></h5>
           <h4>ID: <%= avatar.id %></h4>

@@ -19,11 +19,11 @@ puts "create #{User.all.length} users "
 
 Phrase.destroy_all
 
-p1 = Phrase.create body:'body text', value: 20
+p1 = Phrase.create body:'Hello World!', value: 20
 
-p2 = Phrase.create body:'body text', value: 20
+p2 = Phrase.create body:'Welcome to GA', value: 20
 
-p3 = Phrase.create body:'body text', value: 20
+p3 = Phrase.create body:'Welcome to WDI25', value: 20
 
 puts "create #{Phrase.all.length} phrases "
 
@@ -31,29 +31,29 @@ puts "create #{Phrase.all.length} phrases "
 ###### avatars #####
 Avatar.destroy_all
 
-a1 = Avatar.create src: 'https://www.fillmurray.com/300/200', name: 'avatar 1', description: 'description here', value: 20, is_sale: true, mat_src: 'r2-d2.mtl', obj_src: 'r2-d2.obj'
+a1 = Avatar.create src: 'PikachuPokemon.png', name: 'Pokemon Pikachu Go', description: 'A 3D model of Pokemon Pikachu from 3D Model Library', value: 20, is_sale: true, mat_src: '/assets/pikachu-pokemon-go-obj/pikachu-pokemon-go.mtl', obj_src: '/assets/pikachu-pokemon-go-obj/pikachu-pokemon-go.obj'
 
-a2 = Avatar.create src: 'https://www.fillmurray.com/300/200', name: 'avatar 2', description: 'description here', value: 20, is_sale: true, mat_src: 'r2-d2.mtl', obj_src: 'r2-d2.obj'
+a2 = Avatar.create src: 'StarWarsDogfightWebGL.png', name: 'Star wars dog fight webgl', description: 'A 3D Model star wars dog fight webgl from Fan Art Artist', value: 25, is_sale: true, mat_src: '/assets/star-wars-dogfight-webgl-obj/star-wars-dogfight-webgl.mtl', obj_src: '/assets/star-wars-dogfight-webgl-obj/star-wars-dogfight-webgl.obj'
 
-a3 = Avatar.create src: 'https://www.fillmurray.com/300/200', name: 'avatar 3', description: 'description here', value: 20, is_sale: false, mat_src: 'r2-d2.mtl', obj_src: 'r2-d2.obj'
+a3 = Avatar.create src: 'Goku.png', name: 'Goku', description: 'A 3D model of Goku from dragon ball Z', value: 35, is_sale: false, mat_src: '/assets/goku-obj/goku.mtl', obj_src: '/assets/goku-obj/goku.obj'
 
-a4 = Avatar.create src: 'http://www.fillmurray.com/g/300/200', name: 'avatar 4', description: 'description here', value: 20, is_sale: true, mat_src: 'r2-d2.mtl', obj_src: 'r2-d2.obj'
+a4 = Avatar.create src: 'Fluttershy.png', name: 'Fluttershy', description: '3D Model og Fluttershy from Jason Shoumar', value: 25, is_sale: true, mat_src: '/assets/fluttershy-obj/fluttershy.mtl', obj_src: '/assets/fluttershy-obj/fluttershy.obj'
 
-a5 = Avatar.create src: 'https://www.fillmurray.com/300/200', name: 'avatar 5', description: 'description here', value: 20, is_sale: true, mat_src: 'r2-d2.mtl', obj_src: 'r2-d2.obj'
+a5 = Avatar.create src: 'Gunbotwithwalkanimation.png', name: 'Gunbot with walk animation', description: '3D of Gunbot with walk animation from Krusher99', value: 25, is_sale: true, mat_src: '/assets/gunbot-with-walk-animation-obj/gunbot-with-walk-animation.mtl', obj_src: '/assets/gunbot-with-walk-animation-obj/gunbot-with-walk-animation.obj'
 
-a6 = Avatar.create src: 'https://www.fillmurray.com/300/200', name: 'avatar 6', description: 'description here', value: 20, is_sale: true, mat_src: 'r2-d2.mtl', obj_src: 'r2-d2.obj'
+a6 = Avatar.create src: 'SonicSeriesAmyRose.png', name: 'Sonic Series Amy Rose', description: '3D model of Sonic Series Amy Rose from Jason Shoumar', value: 20, is_sale: true, mat_src: '/assets/sonic-series-amy-rose-obj/sonic-series-amy-rose.mtl', obj_src: '/assets/sonic-series-amy-rose-obj/sonic-series-amy-rose.obj'
 
-a7 = Avatar.create src: 'https://www.fillmurray.com/300/200', name: 'avatar 7', description: 'description here', value: 20, is_sale: false, mat_src: 'r2-d2.mtl', obj_src: 'r2-d2.obj'
+a7 = Avatar.create src: 'MarioSculpture.png', name: 'Mario sculptur', description: '3D model of Mario sculpture from Ben Houston', value: 20, is_sale: false, mat_src: '/assets/mario-sculpture-obj/mario-sculpture.mtl', obj_src: '/assets/mario-sculpture-obj/mario-sculpture.obj'
 
-a8 = Avatar.create src: 'http://www.fillmurray.com/g/300/200', name: 'avatar 8', description: 'description here', value: 20, is_sale: true, mat_src: 'r2-d2.mtl', obj_src: 'r2-d2.obj'
+a8 = Avatar.create src: 'SonictheHedgehog.png', name: 'Sonic the hedgehog', description: 'a 3D model of Sonic the hedgehog from Jason Shoumar', value: 20, is_sale: true, mat_src: '/assets/sonic-the-hedgehog-obj/sonic-the-hedgehog.mtl', obj_src: '/assets/sonic-the-hedgehog-obj/sonic-the-hedgehog.obj'
 
-a9 = Avatar.create src: 'https://www.fillmurray.com/300/200', name: 'avatar 9', description: 'description here', value: 20, is_sale: true, mat_src: 'r2-d2.mtl', obj_src: 'r2-d2.obj'
+a9 = Avatar.create src: 'StarWarsVaderTIEFighter.png', name: 'Star Wars Vader Tie Fighter', description: '3D model of star wars vader tie fighter from ilir bajri', value: 25, is_sale: true, mat_src: '/assets/star-wars-vader-tie-fighter-obj/star-wars-vader-tie-fighter.mtl', obj_src: '/assets/star-wars-vader-tie-fighter-obj/star-wars-vader-tie-fighter.obj'
 
-a10 = Avatar.create src: 'https://www.fillmurray.com/300/200', name: 'avatar 10', description: 'description here', value: 20, is_sale: true, mat_src: 'r2-d2.mtl', obj_src: 'r2-d2.obj'
+a10 = Avatar.create src: 'StarWarsArc170PBR.png', name: 'Star Wars Arc 170 PBR', description: '3D Model of Star Wars Arc 170 PBR from Traquemort28', value: 20, is_sale: true, mat_src: '/assets/star-wars-arc-170-pbr-obj/star-wars-arc-170-pbr.mtl', obj_src: '/assets/star-wars-arc-170-pbr-obj/star-wars-arc-170-pbr.obj'
 
-a11 = Avatar.create src: 'https://www.fillmurray.com/300/200', name: 'avatar 11', description: 'description here', value: 20, is_sale: false, mat_src: 'r2-d2.mtl', obj_src: 'r2-d2.obj'
+a11 = Avatar.create src: 'FerrariLaferrari.png', name: 'Ferrari Laferrari', description: '3D model of Ferrari Laferrari from Jason Shoumar', value: 20, is_sale: false, mat_src: '/assets/ferrari-laferrari-obj/ferrari-laferrari.mtl', obj_src: '/assets/ferrari-laferrari-obj/ferrari-laferrari.obj'
 
-a12 = Avatar.create src: 'http://www.fillmurray.com/g/300/200', name: 'avatar 12', description: 'description here', value: 20, is_sale: true, mat_src: 'r2-d2.mtl', obj_src: 'r2-d2.obj'
+a12 = Avatar.create src: 'SpaceShuttleOrbiter.png', name: 'Space Shuttle Orbiter', description: '3D model of Space Shuttle Orbiter from Jason Shoumar', value: 20, is_sale: true, mat_src: '/assets/space-shuttle-orbiter-obj/space-shuttle-orbiter.mtl', obj_src: '/assets/space-shuttle-orbiter-obj/space-shuttle-orbiter.obj'
 
 
 puts "create #{Avatar.all.length} avatars "

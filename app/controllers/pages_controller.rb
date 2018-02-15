@@ -8,8 +8,10 @@ class PagesController < ApplicationController
   def home
 
     @avatars = Avatar.all
-
-    # @user = current_user
+    featured_list = Avatar.order(created_at: :asc).reverse_order.limit(3).reverse
+    @featured1 = featured_list.first
+    @featured2 = featured_list.second
+    @featured3 = featured_list.third
 
   end
 
