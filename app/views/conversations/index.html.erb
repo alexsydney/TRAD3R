@@ -1,0 +1,30 @@
+<div class=”conversationContainer”>
+ <h3>Mailbox</h3>
+ <div class=”conversationList”>
+  <div class=”conversationItem”>
+   <% @conversations.each do |conversation| %>
+   <% if conversation.sender_id == current_user.id ||      conversation.recipient_id == current_user.id %>
+    <% if conversation.sender_id == current_user.id %>
+      <% recipient = User.find(conversation.recipient_id) %>
+    <% else %>
+      <% recipient = User.find(conversation.sender_id) %>
+    <% end %>
+    <%= link_to recipient.name, conversation_messages_path(conversation)%>
+   <% end %>
+  <% end %>
+</div> <!-- <div class=”conversationItem”> -->
+</div>  <!-- <div class=”conversationList”>  -->
+</div>  <!--- <div class=”conversationContainer”> -->
+
+<div class=”conversationUsers”>
+ <h3>All Users</h3>
+  <div class=”conversationUsersList”>
+   <% @users.each do |user| %>
+    <% if user.id != current_user.id %>
+     <div class=”conversationUsersItem”>
+       <%= user.name %> <%= link_to ‘Message me!’, conversations_path(sender_id: current_user.id, recipient_id: user.id), method: ‘post’%>
+     </div> <!-- <div class=”conversationUsersItem”> -->
+     <% end %>
+     <% end %>
+</div> <!--- <div class=”conversationUsersList”>  -->
+</div> <!--<div class=”conversationUsers”> -->
