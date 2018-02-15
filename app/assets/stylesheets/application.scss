@@ -80,14 +80,17 @@ footer {
        height: 100%  !important;
 
 }
-table {
+.qr-info {
+  margin: 35px;
+}
+.qr table {
   border-width: 0;
   border-style: none;
-  border-color: #0000ff;
   border-collapse: collapse;
+  margin: 35px;
 }
 
-td {
+.qr td {
   border-left: solid 10px #000;
   padding: 0;
   margin: 0;
@@ -95,5 +98,10 @@ td {
   height: 10px;
 }
 
-td.black { border-color: #000; }
-td.white { border-color: #fff; }
+.qr td.black { border-color: #000; }
+.qr td.white { border-color: #fff; }
+
+.modal-content img.hiro {
+  width: 100%;
+  height: auto;
+}

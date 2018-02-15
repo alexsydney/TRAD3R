@@ -34,15 +34,15 @@ scene.add(backLight);
 // }
 
 var mtlLoader = new THREE.MTLLoader();
-mtlLoader.setTexturePath('/3d/');
-mtlLoader.setPath('/3d/');
+mtlLoader.setTexturePath('/assets/');
+mtlLoader.setPath('/assets/');
 mtlLoader.load(materialFile, function (materials) {
 
     materials.preload();
 
     var objLoader = new THREE.OBJLoader();
     objLoader.setMaterials(materials);
-    objLoader.setPath('/3d/');
+    objLoader.setPath('/assets/');
     objLoader.load(objectFile, function (object) {
 
         scene.add(object);

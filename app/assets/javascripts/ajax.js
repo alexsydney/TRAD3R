@@ -2,8 +2,9 @@ $(document).ready(function(){
 
 
  const showMessage = function(){
-   $('#trans-message').html("<span>Congrations on your purchase</span>").show();
+   //$('#trans-message').html("<span>Congrations on your purchase</span>").show();
    $('#buy').hide();
+   $('#successModal').modal('show');
 
   };
 
