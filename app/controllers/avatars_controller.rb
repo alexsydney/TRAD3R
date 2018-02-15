@@ -109,7 +109,7 @@ class AvatarsController < ApplicationController
     if Rails.env.development?
       @qr = RQRCode::QRCode.new( request.host_with_port + ar_path, :size => 4, :level => :h )
     else
-      @qr = RQRCode::QRCode.new( request.domain + ar_path, :size => 4, :level => :h )
+      @qr = RQRCode::QRCode.new( request.subdomain(alextrad3r) + ar_path, :size => 4, :level => :h )
     end
   end
 
