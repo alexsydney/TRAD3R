@@ -29,6 +29,9 @@ body {
 footer {
   margin: 20px;
 }
+.navbar {
+  height:100px;
+}
  #map {
    width: 100%;
    height: 400px;
@@ -53,7 +56,7 @@ footer {
  .btn.btn-outline-primary {
      margin: 20px;
  }
- .coin img {
+ .coin img, .price img {
    width:35px;
  }
  .coin {
@@ -62,7 +65,17 @@ footer {
      font-weight: bold;
      vertical-align: middle;
      margin-right: 15px;
-     width: 60px;
+     width: 70px;
+     float: left;
+     display: inline-block;
+ }
+ .price {
+     color: #fdca41;
+     font-size: 1.5em;
+     font-weight: bold;
+     vertical-align: middle;
+     margin-bottom: 3px;
+     width: 100%;
      float: left;
      display: inline-block;
  }
@@ -112,4 +125,7 @@ footer {
 }
 .buy-buttons {
     margin: 20px auto;
+}
+button.btn.btn-danger {
+    height: 85px;
 }
