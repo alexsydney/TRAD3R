@@ -1,9 +1,9 @@
 var scene = new THREE.Scene();
 
-var camera = new THREE.PerspectiveCamera( 65, window.innerWidth/window.innerHeight, 0.1, 1000 );
-camera.position.z = 200;
+var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+camera.position.z = 3;
 
-var renderer = new THREE.WebGLRenderer();
+var renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.getElementById('3d-view').appendChild( renderer.domElement );
 
@@ -32,9 +32,14 @@ scene.add(backLight);
 //     mesh.localToWorld( center );
 //     return center;
 // }
+// var sFolderPath = '/assets/3d/';
+// if (!fso.FolderExists(sFolderPath)) {
+//     console.log("Folder does not exist!");
+//     return;
+// };
 
 var mtlLoader = new THREE.MTLLoader();
-mtlLoader.setTexturePath('/assets/');
+mtlLoader.setTexturePath(`/assets/${subfolder}`);
 mtlLoader.setPath('/assets/');
 mtlLoader.load(materialFile, function (materials) {
 
@@ -49,10 +54,10 @@ mtlLoader.load(materialFile, function (materials) {
         //object.position.y -= 60;
 
         //object.geometry.center();
-        var box = new THREE.Box3().setFromObject( object )
-        var boundingBoxSize = box.max.sub( box.min );
-        var height = boundingBoxSize.y;
-        object.position.y = (height / 2) *-1;
+        // var box = new THREE.Box3().setFromObject( object )
+        // var boundingBoxSize = box.max.sub( box.min );
+        // var height = boundingBoxSize.y;
+        // object.position.y = (height / 2) *-1;
 
 
     });

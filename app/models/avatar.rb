@@ -10,6 +10,19 @@ belongs_to :user, optional: true
     user_id == u.id
   end
 
+  def in_order
+    order(created_at: :asc)
+  end
+
+  def recent(n)
+    in_order.endmost(n)
+  end
+
+  def endmost(n)
+    all.only(:order).from(all.reverse_order.limit(n), table_name)
+  end
+
+
 
 
 end
