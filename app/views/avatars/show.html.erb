@@ -2,23 +2,28 @@
 <div class="row">
   <div class="col-6">
 
-    <H1><a href="<%= @avatar.src %>"><%= @avatar.name %></a></H1>
+    <H1><%= @avatar.name %></H1>
     <p><strong>ID:</strong> <%= @avatar.id %></p>
-    <p><strong>Price:</strong> <%= @avatar.value %></p>
-    <p><strong>Description:</strong>  <%= @avatar.description %></p>
+    <p class="price"><img src="/assets/coin-spin.gif"><span><%= @avatar.value %></span></p>
+    <p class="desc"><strong>Description:</strong>  <%= @avatar.description %></p>
     <% if @current_user.present? %>
     <% if @avatar.is_owner?( @current_user ) %>
     <p><%= link_to 'Edit', edit_avatar_path(@avatar.id), class:"btn btn-primary"  %>
       <%= link_to 'Delete', avatar_path, method: :delete, class:"btn btn-primary" %></p>
       <% elsif !@avatar.is_sale? %>
-      <p><strong>Sorry, this item is not for sale</strong></p>
+      <div class="alert alert-danger" role="alert">
+      <strong>Sorry, this item is not for sale</strong>
+      </div>
       <% elsif @current_user.can_buy?( @avatar ) %>
       <!-- <button type="submit" id="submit" class="btn btn-primary", order_avatar_path>Buy Now</button> -->
       <button id="buy" data-toggle="modal" class="btn btn-primary btn-raised">BUY NOW</button>
       <%#= button_to 'BUY NOW', "#", data: {toggle: "modal", target: "#successModal"}, id: "buy", class: "btn btn-primary btn-raised", method: 'get'%>
       <% end %>
       <% else %>
-      <p>To Purchase, Please <%= link_to "Sign-In", login_path %> or <%= link_to "Sign-Up",  new_user_path %></p>
+      <br>
+      <div class="alert alert-primary" role="alert">
+      To Purchase, Please <%= link_to "Sign-In", login_path %> or <%= link_to "Sign-Up",  new_user_path %>
+      </div>
       <% end %>
       <!-- transaction error message -->
       <div id="trans-message" style="display:none;"></div>
@@ -34,7 +39,9 @@
               </button>
             </div>
             <div class="modal-body">
+              <div class="alert alert-primary" role="alert">
               You have successfully purchased this model.
+              </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -89,7 +96,14 @@
   // var materialFile = <%= @avatar_model_data.to_json %>;
   var materialFile = '<%= @avatar.mat_src %>';
   var objectFile = '<%= @avatar.obj_src %>';
-
+  function removeLastPath(path){
+    var the_arr = path.split('/');
+    the_arr.pop();
+    return ( the_arr.join('/') + '/' );
+};
+var subfolder = removeLastPath(materialFile);
+console.log('check', subfolder);
+  //var subfolder = materialFile.replace(/\.[^/.]+$/, "")
   $(document).ready(function(){
     $('.qr-modal').modal('hide');
     // $('#successModal').modal('hide')

@@ -1,4 +1,3 @@
-<div class="container">
 <br>
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
@@ -8,21 +7,21 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" src="<%= @featured1.src %>" alt="First slide">
+        <img class="d-block w-100" src="/assets/<%= @featured1.src %>" alt="First slide">
         <div class="carousel-caption d-none d-md-block">
         <h5><%= @featured1.name %></h5>
         <p><%= @featured1.description %></p>
         </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="<%= @featured2.src %>" alt="Second slide">
+        <img class="d-block w-100" src="/assets/<%= @featured2.src %>" alt="Second slide">
         <div class="carousel-caption d-none d-md-block">
         <h5><%= @featured2.name %></h5>
         <p><%= @featured2.description %></p>
         </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="<%= @featured3.src %>" alt="Third slide">
+        <img class="d-block w-100" src="/assets/<%= @featured3.src %>" alt="Third slide">
         <div class="carousel-caption d-none d-md-block">
         <h5><%= @featured3.name %></h5>
         <p><%= @featured3.description %></p>
@@ -50,21 +49,21 @@
             <p><strong>ID: </strong><%= avatar.id %></p>
             <p class="card-text"><%= avatar.description %></p>
             <% if avatar.is_sale %>
-            <p class="coin"><img src="https://orig00.deviantart.net/712c/f/2010/236/2/e/spinning_coin___animation_by_mantastic001.gif"><span><%= avatar.value %></span></p>
             <% end %>
           </div>
 
-            <% if avatar.is_sale == true %>
-            <a href="<%= avatar_path(avatar.id) %>" class="btn btn-primary btn-raised">VIEW</a>
+            <% if avatar.is_sale? %>
+              <div class="buy-buttons">
+                <p class="coin"><img src="https://orig00.deviantart.net/712c/f/2010/236/2/e/spinning_coin___animation_by_mantastic001.gif"><span><%= avatar.value %></span></p>
+                <button type="button" id="buy" class="btn btn-primary btn-raised" name="button">BUY NOW</button>
+                <%= link_to "VIEW", avatar_path(avatar.id), class:"btn btn-primary" %>
+              </div>
+
             <% else %>
-          <button class="btn btn-danger">NOT FOR SALE</button>
+          <button class="btn btn-danger">SOLD OUT</button>
             <% end %>
 
           </div>
         </div>
           <% end %>
-
-
-
-
   </div>

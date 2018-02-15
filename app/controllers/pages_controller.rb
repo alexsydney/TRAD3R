@@ -12,7 +12,7 @@ class PagesController < ApplicationController
     @featured1 = featured_list.first
     @featured2 = featured_list.second
     @featured3 = featured_list.third
-
+    #raise 'hell'
   end
 
   def search
