@@ -1,24 +1,54 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## [TRAD3R](https://alextrad3r.herokuapp.com)
 
-Things you may want to cover:
+#### Description
 
-* Ruby version
+TRAD3R is a 3d model trading app which can load 3d models in a three.js loader and also allow users to view that model in an augmented reality viewer with AR.js.
 
-* System dependencies
+Test [Login](https://alextrad3r.herokuapp.com) with test@gmail.com pass: chicken
 
-* Configuration
+#### Features
 
-* Database creation
+* Trade avatars (3d models) for in app coins
 
-* Database initialization
+* View interactive 3d models with three.js
 
-* How to run the test suite
+* Augmented reality view of 3d models with AR.js and aframe
 
-* Services (job queues, cache servers, search engines, etc.)
+* Avatars can have visual text 'phrases'
 
-* Deployment instructions
+* Auto generated QR codes redirecting phones to AR viewer
+
+* User Creation
+
+* Search bar
+
+* Styled with Bootstrap and Google material design
+
+* Ruby on Rails front & backend
 
 * ...
+
+#### Tools, Librarys & Frameworks
+
+* [three.js](https://threejs.org/)
+
+* [AR.js](https://threejs.org/) & [aframe](https://aframe.io/)
+
+* [JQuery](https://jquery.com/)
+
+* [Bootstrap](https://getbootstrap.com/)
+
+* [bootstrap-material-design](https://fezvrasta.github.io/bootstrap-material-design/)
+
+* App structure [Ruby on Rails](http://rubyonrails.org/)
+
+#### Notable Rails Gems
+
+[rQRcode](https://github.com/whomwah/rqrcode)
+
+#### Wishlist
+
+
+#### Bugs
