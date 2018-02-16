@@ -6,7 +6,7 @@
 
 TRAD3R is a 3d model trading app which can load 3d models in a three.js loader and also allow users to view that model in an augmented reality viewer with AR.js.
 
-Test [Login](https://alextrad3r.herokuapp.com) with test@gmail.com pass: chicken
+Test [Login](https://alextrad3r.herokuapp.com/login) with test@gmail.com pass: chicken
 
 #### Features
 

@@ -109,7 +109,7 @@ class AvatarsController < ApplicationController
     if Rails.env.development?
       qr = RQRCode::QRCode.new( request.host_with_port + ar_path, :size => 6, :level => :h )
     else
-      url = request.subdomains.first + "." + request.domain + ar_path( @avatar )
+      url = "https://" + request.subdomains.first + "." + request.domain + ar_path( @avatar )
       qr = RQRCode::QRCode.new( url, :size => 6, :level => :h )
     end
       @qr_svg = qr.as_svg(module_size: 8)
