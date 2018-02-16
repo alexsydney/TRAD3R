@@ -107,13 +107,13 @@ class AvatarsController < ApplicationController
     #raise 'hell'
     #require 'rqrcode'
     if Rails.env.development?
-      @qr = RQRCode::QRCode.new( request.host_with_port + ar_path, :size => 4, :level => :h )
+      @qr = RQRCode::QRCode.new( request.host_with_port + ar_path, :size => 6, :level => :h )
     else
       # alextrad3r.herokuapp.com/avatars/18/ar
       url = request.subdomains.first + "." + request.domain + ar_path( @avatar )
 
       puts "URL: #{url}"
-      @qr = RQRCode::QRCode.new( url, :size => 4, :level => :h )
+      @qr = RQRCode::QRCode.new( url, :size => 6, :level => :h )
     end
   end
 
