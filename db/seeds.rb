@@ -63,6 +63,6 @@ u2.avatars << a2 << a5 << a6 << a10
 u3.avatars << a3 << a8
 u4.avatars << a11 << a12
 
-a1.phrases << p1 << p2
-a2.phrases << p3 << p2
-a3.phrases << p1 << p3
+a1.phrases << p1
+a2.phrases << p2
+a3.phrases << p3

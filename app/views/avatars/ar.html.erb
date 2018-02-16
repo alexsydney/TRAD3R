@@ -14,12 +14,21 @@
     <!-- Adding an OBJ file to an AR Project-->
     <a-asset-item id="tree-obj" src='/assets/<%= @avatar.obj_src %>'></a-asset-item>
     <a-asset-item id="tree-mtl" src='/assets/<%= @avatar.mat_src %>'></a-asset-item>
-    <a-entity obj-model="obj: #tree-obj; mtl: #tree-mtl" rotation="0 0 0" scale="1 1 1" position="0 0 0"></a-entity>
+    <a-entity obj-model="obj: #tree-obj; mtl: #tree-mtl" rotation="90 -180 0" scale="0.05 0.05 0.05" position="0 0 0"></a-entity>
     <!-- <a-entity id="robot"
   obj-model="obj: url(<%= @avatar.obj_src %>);
         mtl: url(<%= @avatar.mat_src %>)" rotation="-90 0 0" scale="0.1 0.1 0.1" position="-1 0 -0.5">
     </a-entity> -->
-    <a-text value="Hello Phrase" position="0.5 0.2 -1.1" rotation="-90 0 0"></a-text>
+
+    <% @avatar.phrases.each_with_index do |phrase, index| %>
+    <a-text
+      value="<%= phrase.body %>"
+      position="0.6 <%= (index+1) * 0.5 %> -1.6"
+      rotation="-90 0 0">
+    </a-text>
+  <% end %>
+
+    <!-- <a-text value="Hello Phrase" position="0.5 0.2 -1.1" rotation="-90 0 0"></a-text> -->
 
   </a-marker>
   <!-- <a-camera>
